@@ -35,7 +35,7 @@ function signOut(event){
 
 <Header>
   <nav>
-    <a @click="signOut">Log Out</a>
+    <a @click="signOut" class="link">Log Out</a>
   </nav>
 
 
@@ -46,12 +46,6 @@ function signOut(event){
 </template>
 
 <style scoped>
-:deep(a){
-  text-decoration: none;
-  cursor:pointer;
-}
-a:hover{
-  color:darkgray;
-}
+
 
 </style>

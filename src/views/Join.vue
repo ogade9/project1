@@ -46,7 +46,7 @@ const loginFunc= ()=>{
   <Header>
     <nav>
 
-      <RouterLink to="/SignIn">Sign In</RouterLink>
+      <RouterLink to="/SignIn" class="link">Sign In</RouterLink>
     </nav>
   </Header>
 
@@ -55,27 +55,27 @@ const loginFunc= ()=>{
       <fieldset class="formfieldset">
 
       <legend class="formLegend">First Name</legend>
-      <input class="formInput" type="text" required v-model="firstName">
+      <input class="formInput" type="text"  v-model="firstName">
 
 
       </fieldset>
       <fieldset class="formfieldset">
 
         <legend class="formLegend">Last Name</legend>
-        <input class="formInput" type="text" required v-model="lastName">
+        <input class="formInput" type="text"  v-model="lastName">
 
 
       </fieldset>
       <fieldset class="formfieldset">
 
         <legend class="formLegend">Email Name</legend>
-        <input class="formInput" type="email" required v-model="email">
+        <input class="formInput" type="email"  v-model="email">
 
       </fieldset>
       <fieldset class="formfieldset">
 
         <legend class="formLegend">User Name</legend>
-        <input class="formInput" type="text" required v-model="username">
+        <input class="formInput" type="text"  v-model="username">
 
 
       </fieldset>
@@ -83,14 +83,14 @@ const loginFunc= ()=>{
       <fieldset class="formfieldset">
 
         <legend class="formLegend">Password</legend>
-        <input class="formInput" type="password" required v-model="password">
+        <input class="formInput" type="password"  v-model="password">
 
 
       </fieldset>
       <fieldset class="formfieldset">
 
         <legend class="formLegend">Confirm Password</legend>
-        <input class="formInput" type="password" required v-model="confirmPassword">
+        <input class="formInput" type="password"  v-model="confirmPassword">
 
 
       </fieldset>
@@ -103,12 +103,7 @@ const loginFunc= ()=>{
 
 </template>
 <style scoped>
-:deep(a){
-  text-decoration: none;
-}
-a:hover{
-  color:darkgray;
-}
+
 
 </style>
 

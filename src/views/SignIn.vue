@@ -23,7 +23,7 @@ const signInFunc= () =>{
 
   localStorage.setItem("signInValues",signIn);
   console.log(localStorage)
-  alert("Sign-in successful!");
+
 
   const savedValues = JSON.parse(localStorage.getItem("signInValues"));
   if(savedValues.name !==username.value|| savedValues.sign!==password.value){
@@ -46,7 +46,7 @@ const signInFunc= () =>{
 <template>
   <Header>
     <nav>
-        <RouterLink to="/Join">Join</RouterLink>
+        <RouterLink to="/Join" class="link">Join</RouterLink>
     </nav>
   </Header>
   <form class="SignInForm" @submit.prevent="signInFunc">
