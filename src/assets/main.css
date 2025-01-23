@@ -88,7 +88,7 @@ img {
   text-decoration: none;
   border: 1px solid black;
   border-radius: 100vmax;
-  padding: 1.25em 2.5em;
+  padding: 1.25em 1.5em;
   font-weight: var(--fw-bold);
   font-size: var(--fs-button);
   line-height: 1;
@@ -128,7 +128,7 @@ img {
   background-color: transparent;
   outline: none;
 }
-.SignInForm {
+.JoinInForm {
   max-width: 400px;
   height: 600px;
   margin: 2rem auto;
@@ -148,7 +148,21 @@ img {
   width: 100px;
   height: 50px;
   border-radius: 35px;
-  text-align: center;
+  text-align:center;
+  
+}
+.SignInForm{
+
+  max-width: 400px;
+  height:400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color:rgba(211, 211, 211, 0.6);;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  font-family: var(--ff-body);
+
+
 }
 .formLegend {
   border: 2px solid whitesmoke;
@@ -177,4 +191,13 @@ img {
 }
 .link {
   text-decoration: none;
+}
+.HomePageImage{
+  height:200px;
+  background-color:beige;
+  padding: 5px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

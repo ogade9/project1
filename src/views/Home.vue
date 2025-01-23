@@ -12,10 +12,10 @@ import '@/assets/main.css';
 
     <nav>
 
-      <RouterLink to="/join" class="--fs-nav">Join</RouterLink>
+      <RouterLink to="/join" class="--fs-nav" v-model="joinBtn">Join</RouterLink>
     </nav>
     <nav>
-      <RouterLink to="/signin" class="--fs-nav">Sign In</RouterLink>
+      <RouterLink to="/signin" class="--fs-nav" v-model="signBtn">Sign In</RouterLink>
     </nav>
 
   </Header>
@@ -41,19 +41,6 @@ import '@/assets/main.css';
 </template>
 <style scoped >
 
-.HomePageImage{
-  height:200px;
-  background-color:beige;
-  padding: 5px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-
-
 :deep(a){
   text-decoration: none;
 
@@ -61,5 +48,10 @@ import '@/assets/main.css';
 a:hover{
   color:darkgray;
 }
+
+
+
+
+
 
 </style>

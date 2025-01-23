@@ -15,8 +15,8 @@ const signInFunc= () =>{
   };
   //Adding username and password to Local Storage
   let signInValues = {
-  name: username.value,
-  sign: password.value
+  username: username.value,
+  password: password.value
   };
   let signIn = JSON.stringify(signInValues)
 //Since local storage can only take in strings
@@ -26,7 +26,7 @@ const signInFunc= () =>{
 
 
   const savedValues = JSON.parse(localStorage.getItem("signInValues"));
-  if(savedValues.name !==username.value|| savedValues.sign!==password.value){
+  if(savedValues.username !==username.value|| savedValues.password!==password.value){
     alert("Wrong username or password");
     return;
   }
@@ -67,7 +67,7 @@ const signInFunc= () =>{
       </fieldset>
     </div>
 
-      <input class="btn" type="submit" value="SIGN IN">
+      <input class="btn" type="submit" value="SIGN IN" >
 
   </div>
   </div>
@@ -76,27 +76,10 @@ const signInFunc= () =>{
 </template>
 
 <style scoped>
-:deep(a){
-  text-decoration: none;
-}
-a:hover{
-  color:darkgray;
-}
 
 
-.SignInForm{
-
-  max-width: 400px;
-  height:400px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color:rgba(211, 211, 211, 0.6);;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  font-family: var(--ff-body);
 
 
-}
 
 
 

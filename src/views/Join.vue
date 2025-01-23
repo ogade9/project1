@@ -24,7 +24,7 @@ const loginFunc= ()=>{
     return;
 
   }
-  let joinObj = {
+  let signInValues= {
     firstname: firstName.value,
     lastName:lastName.value,
     email:email.value,
@@ -34,10 +34,10 @@ const loginFunc= ()=>{
 
   }
 
-  let joinValues= JSON.stringify(joinObj);
-  localStorage.setItem("joinObj",joinValues);
+  let signIn= JSON.stringify(signInValues);
+  localStorage.setItem("signInValues",signIn);
   alert("You have successfully joined!");
-  router.push('/SignIn');
+  router.push('/Welcome');
 }
 
 </script>
@@ -50,7 +50,7 @@ const loginFunc= ()=>{
     </nav>
   </Header>
 
-    <form class="SignInForm" @submit.prevent="loginFunc">
+    <form class="JoinInForm" @submit.prevent="loginFunc">
     <div class="Block">
       <fieldset class="formfieldset">
 
@@ -95,7 +95,7 @@ const loginFunc= ()=>{
 
       </fieldset>
 
-      <input class="btn" type="submit" value="Join">
+      <input class="btn" type="submit" value="Join" >
     </div>
 
 
