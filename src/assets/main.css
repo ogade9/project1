@@ -1,5 +1,5 @@
 :root {
-  --background-color: #f5f5f5;
+  --background-color: rgb(32, 33, 46);
   --button-colors: #ff6f61;
   --form-highlight: #ffc1cc;
   --button-effects: #f8d5d8;
@@ -45,7 +45,10 @@
 body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  background-color: #eeefe2;
+  background-color: var(--background-color);
+  color:white;
+  height: 100vh;
+  width:100vw;
 }
 img {
   max-width: 100%;
@@ -80,6 +83,8 @@ img {
   margin-inline: auto;
   margin-top: 60px;
   border: solid 3px rgb(24, 24, 23);
+  background-color: rgb(223, 220, 245);
+  color: black;
   padding: 30px;
   border-radius: 10px;
 }
@@ -92,6 +97,7 @@ img {
   font-weight: var(--fw-bold);
   font-size: var(--fs-button);
   line-height: 1;
+  
   color: var(--clr-neutral-100);
   background-color: whitesmoke;
   box-shadow: 0 1.125em 1em -1em #2b2a29;
@@ -101,10 +107,24 @@ img {
   background-color: var(--button-effects);
   color: var(--clr-accent-400);
 }
+.btn-menu{
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 100vmax;
+  padding: 1.25em 1.5em;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-button);
+  line-height: 1;
+
+}
+.btn-menu:hover{
+  background-color: #484650;
+}
 
 .btn:hover,
 .btn:focus-visible {
-  background-color: #f6e0b3;
+  background-color: #484650;
 }
 
 .btn[data-type="inverted"]:hover,
@@ -133,7 +153,8 @@ img {
   height: 600px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: rgba(211, 211, 211, 0.6);
+  background-color: rgb(223, 220, 245);
+  color: black;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   font-family: var(--ff-body);
@@ -148,24 +169,22 @@ img {
   width: 100px;
   height: 50px;
   border-radius: 35px;
-  text-align:center;
-  
+  text-align: center;
 }
-.SignInForm{
-
+.SignInForm {
   max-width: 400px;
-  height:400px;
+  height: 400px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color:rgba(211, 211, 211, 0.6);;
+  background-color: rgb(223, 220, 245);
+  color:black;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   font-family: var(--ff-body);
-
-
 }
 .formLegend {
-  border: 2px solid whitesmoke;
+  border: 1px solid black;
+  border:none;
   top: 50%;
   border-bottom: none;
   background-color: whitesmoke;
@@ -173,31 +192,260 @@ img {
 .logo {
   width: 200px;
   height: 200px;
+  margin-top: -130px;
 }
 
 .Headcontainer {
   margin-top: 40px;
-  background-color: rgba(211, 211, 211, 0.6);
+  background-color: rgb(168, 162, 208);
   height: 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: end;
+
   padding: 1.5rem;
 }
 
 .link:hover {
-  color: darkgray;
+  color: rgb(78, 59, 82);
   cursor: pointer;
 }
 .link {
   text-decoration: none;
 }
-.HomePageImage{
-  height:200px;
-  background-color:beige;
+.HomePageImage {
+  height: 200px;
+  background-color: rgb(168, 162, 208);
   padding: 5px;
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.fs-primary-heading::first-letter{
+  color:#2b2a29;
+  font-size: 160px;
+  font-weight: bold;
+  
+}
+.fs-primary-heading{
+  text-align: center;
+  text-decoration-line: underline;
+}
+p{
+  white-space: no-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 130rem;
+}
+
+
+
+
+
+footer{
+  position:relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  margin-top: 300px;
+  height: 150px;
+  flex-direction: column;
+  /*background-color:rgb(223, 220, 245);*/
+
+}
+.icons {
+  position:relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:10px 0;
+  flex-wrap: wrap;
+  color: black;
+  
+  
+  
+
+
+
+}
+.icons li {
+  list-style: none;
+  margin: 10px ;
+
+}
+.icons{
+  font-size: 2em;
+  margin:0 10px;
+  margin-bottom: -20px;
+  z-index: 1500;
+  cursor: pointer;
+  
+
+
+}
+.menu a{
+  font-size: 1em;
+  color:black;
+  margin: 0 10px;
+  opacity: 0.65;
+  position: relative;
+  z-index: 1600;
+  margin-top: 30px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.waves svg{
+  position:absolute;
+  bottom: 0;
+  
+  left:0px;
+  width:100%;
+  height:auto;
+  background:url('/Users/lgapr/Downloads/wave%20(6).svg');
+  background-size:cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  opacity: 1;
+
+
+}
+.waves {
+  position: absolute;
+  bottom: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.wave1 svg{
+  z-index: 1000;
+  opacity: 0.5;
+  bottom: 3px;
+}
+.wave2 svg{
+  z-index: 1000;
+  opacity: 0.9;
+  bottom: 0px;
+}
+.wave3 svg{
+  z-index: 1000;
+  opacity: 0.8;
+  bottom: 12px;
+}
+.wave4 svg{
+  z-index: 999;
+  opacity: 0.4;
+  bottom:20px;
+}
+.errorMessage{
+  background-color: rgb(32, 33,46);
+  color:white;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.dropdown{
+  
+  padding: 10px;
+  cursor: pointer;
+  
+  
+
+
+}
+.dropdown a{
+  display: block;
+  color:white;
+  padding: 5px;
+  margin-right:3px;
+  text-decoration: none;
+  width:75px;
+  
+}
+.dropdown .content{
+  display:none;
+  position: absolute;
+  background-color: rgb(168, 162, 208);
+  box-shadow: 2px 2px 5px black;
+  text-decoration: none;
+  width:75px;
+  
+}
+.dropdown:hover .content{
+  display: block;
+}
+.dropdown a:hover{
+  background-color: #484650;
+}
+
+main{
+  display: flex;
+  flex: 1;
+}
+.column {
+	flex: 1; 
+  padding: 20px;
+  text-align: center;
+ 
+
+}
+.column:nth-child(1) {
+
+  border-right: 2px solid rgb(168, 162, 208);
+  height:100vh;
+  border-left: none;
+  box-shadow: 2px 0 10px rgb(168,162,208);
+  
+
+}
+
+.column:nth-child(2) {
+  border-right: 2px solid rgb(168, 162, 208);
+  box-shadow: 2px 0 10px rgb(168,162,208);
+  
+  
+  
+}
+.column:nth-child(3) {
+
+  border-right: 2px solid rgb(168, 162, 208);
+  height:100vh;
+  border-left: none;
+  box-shadow: 2px 0 10px rgb(168,162,208);
+  
+
+}
+.grid-panel {
+	padding: var(--size-300);
+	margin: var(--size-300);
+}
+
+
+.bars{
+  border-bottom:0.5px solid rgb(168, 162, 208);
+  box-shadow: 5px 0 10px rgb(168,162,208);
+  border-radius: 3px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  
+
+}
+.bars:hover{
+  background-color: #484650;
+
+}
+.btn-menu2{
+  
+  position: relative;
+  margin-top:-20px;
+  border-radius: 7px;
+  cursor: pointer;
+
+}
+.btn-menu2:hover{
+  background-color: #484650;
 }

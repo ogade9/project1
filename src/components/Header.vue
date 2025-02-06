@@ -8,23 +8,33 @@ import Logo from './Logo.vue';
 
 
   <header>
+
     <div class="Headcontainer">
-    <Logo />
 
 
 
-      <slot></slot>
+
+
+
+      <slot >
+
+      </slot>
+
 
 
     </div>
+    <Logo />
   </header>
+  
+
 </template>
 
 <style scoped>
 :slotted(*){
   font-size: var(--fs-600);
   color:black;
-  
+  margin-right: 1rem;
+
 }
 
 </style>

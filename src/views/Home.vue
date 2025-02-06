@@ -1,12 +1,20 @@
 <script setup>
 import { RouterLink } from 'vue-router';
 import Header from '../components/Header.vue'
+import Footer from '../components/Footer.vue'
 import '@/assets/main.css';
+import {onMounted, ref} from "vue";
+
+
+
+
+
 
 
 </script>
 
 <template>
+
 
   <Header>
 
@@ -18,25 +26,33 @@ import '@/assets/main.css';
       <RouterLink to="/signin" class="--fs-nav" v-model="signBtn">Sign In</RouterLink>
     </nav>
 
+
   </Header>
 
 
-<div class="container">
 
-  <div class="HomePageImage">
+    <div class="container">
 
-    <img src="/L.svg">
-  </div>
+      <div class="HomePageImage">
 
-  <p class="fs-primary-heading">About The App</p>
-  <div class="AboutAppWriteUp">
-    <p>
+      <img src="/L.svg">
+
+
+
+
+    </div >
+
+
+    <p class="fs-primary-heading">About The App</p>
+    <div class="AboutAppWriteUp">
+      <p class="AboutApp">
       Imagine a workout video app designed to fit your groove perfectly! This custom app lets you personalize your workouts by adding your favorite songs to any workout video. The app includes an innovative syncing feature that ensures you never miss a beat, allowing the countdown timer and the music to work seamlessly together.
-    </p>
-
-
+      </p>
     </div>
-  </div>
+    </div>
+
+
+  <Footer></Footer>
 
 </template>
 <style scoped >
@@ -46,7 +62,7 @@ import '@/assets/main.css';
 
 }
 a:hover{
-  color:darkgray;
+  color:grey;
 }
 
 

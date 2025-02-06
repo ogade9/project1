@@ -1,41 +1,59 @@
 <script setup>
 import { useRouter } from 'vue-router';
 import Header from '../components/Header.vue';
+import Footer from '../components/Footer.vue';
 import {ref} from 'vue';
 
 
-const username= ref('');
+const email= ref('');
 const password=ref('');
 const router = useRouter();
+const errorMessageSignin=ref('');
 
-const signInFunc= () =>{
-  if(!username.value || !password.value){
-    alert("Please fill in both fields.");
-    return;
-  };
-  //Adding username and password to Local Storage
-  let signInValues = {
-  username: username.value,
-  password: password.value
-  };
-  let signIn = JSON.stringify(signInValues)
-//Since local storage can only take in strings
-
-  localStorage.setItem("signInValues",signIn);
-  console.log(localStorage)
+async function signIn(e){
 
 
-  const savedValues = JSON.parse(localStorage.getItem("signInValues"));
-  if(savedValues.username !==username.value|| savedValues.password!==password.value){
-    alert("Wrong username or password");
-    return;
-  }
 
-  alert("Sign-in successful!")
-  router.push('/Welcome');
+
+const data={email:email.value,password:password.value};
+
+const serverUrl = 'https://hap-app-api.azurewebsites.net/user/login'
+
+const options= {
+  method:"POST",
+  headers:{
+    "Content-Type": "application/json",
+  },
+  body:JSON.stringify(data),
 }
 
+let response= await fetch(serverUrl,options)
 
+if (response.status === 200) {
+		const data = await response.json()
+
+		localStorage.setItem("token", data.token)
+    localStorage.setItem("userName", JSON.stringify({ userName: data.user.userName }));
+
+		console.log("Token:" + data.token)
+    //console.log(localStorage.getItem("userName"));
+    console.log("API Response:", data);
+    //email.value= data.firstName;
+
+
+
+
+
+
+  console.log("Sign-in successful!")
+  console.log(localStorage.getItem("token"));
+  router.push('/Welcome');
+  }else if (response.status === 400) {
+    errorMessageSignin.value= "Invalid email or password!"
+		//alert("Invalid credentials!")
+		console.log("Invalid email or password.")
+	}
+}
 
 
 
@@ -49,13 +67,13 @@ const signInFunc= () =>{
         <RouterLink to="/Join" class="link">Join</RouterLink>
     </nav>
   </Header>
-  <form class="SignInForm" @submit.prevent="signInFunc">
+  <form class="SignInForm" @submit.prevent="signIn">
     <div class="Block">
     <div >
       <div >
         <fieldset class="formfieldset">
-          <legend class="formLegend">User Name</legend>
-          <input class="formInput" type="text" id="username" v-model="username">
+          <legend class="formLegend">Email</legend>
+          <input class="formInput" type="email" id="email" v-model="email" required>
 
         </fieldset>
     </div>
@@ -63,9 +81,11 @@ const signInFunc= () =>{
     <div >
       <fieldset class="formfieldset">
         <legend class="formLegend">Password</legend>
-        <input class="formInput" type="password" id="password" v-model="password">
+        <input class="formInput" type="password" id="password" v-model="password" required>
       </fieldset>
+
     </div>
+    <div class="errorMessage" v-if="errorMessageSignin">{{errorMessageSignin}}</div>
 
       <input class="btn" type="submit" value="SIGN IN" >
 
@@ -73,9 +93,15 @@ const signInFunc= () =>{
   </div>
   </form>
 
+  <Footer>
+
+
+  </Footer>
+
 </template>
 
 <style scoped>
+
 
 
 
