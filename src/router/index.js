@@ -9,6 +9,7 @@ import Live from "../views/Live.vue";
 import Profile from "../views/Profile.vue";
 
 
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -19,9 +20,9 @@ const router = createRouter({
       {
         path: '/welcome',
             components: {
-              leftSidebar: Navigation,
+              leftSidebar: Live,
               focus: Progress,
-              rightSidebar: Live
+              rightSidebar:Navigation
             },
       },
       {

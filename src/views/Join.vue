@@ -55,7 +55,7 @@ async function joinFunc(e) {
     console.log("Token" + data.token)
     console.log('Email:'+ data.email)
     localStorage.setItem("userName", JSON.stringify({ userName: data.user.userName }));
-   // localStorage.setItem("firstName", data.firstName);
+    localStorage.setItem("firstName", data.firstName);
 
     localStorage.setItem("token", data.token)
 
