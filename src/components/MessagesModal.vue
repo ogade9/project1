@@ -31,10 +31,7 @@ function close(e){
 
 </template>
 <style>
-body :not(.profile-modal){
-  
 
-}
 .unblurred .profile-modal{
   height:400px;
   width: 400px;

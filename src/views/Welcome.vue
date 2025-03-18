@@ -155,12 +155,17 @@ async function profileFunc(event) {
         <input type="submit" class="btn-menu" value="Enter">
       </form>
     </div>
+    
     <main>
 
       <RouterView name="leftSidebar" class="column"> </RouterView>
       <RouterView name="focus" class="column"> </RouterView>
       <RouterView name="rightSidebar" class="column"> </RouterView>
+
+      <RouterView name="middlePanel"> </RouterView>
+
     </main>
+
     <Footer> </Footer>
 
   </div>

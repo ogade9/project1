@@ -4,6 +4,8 @@ import { RouterLink } from "vue-router";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue"
 import { ref } from "vue";
+import {userProfile} from '@/stores/user';
+
 
 const firstName = ref("");
 const lastName = ref("");
@@ -13,9 +15,12 @@ const password = ref("");
 const confirmPassword=ref("");
 const errorMessage=ref("")
 const router = useRouter();
+const userDetails = userProfile();
 
 
 
+
+let vals;
 async function joinFunc(e) {
   e.preventDefault();
   if(password.value!=confirmPassword.value){
@@ -46,26 +51,37 @@ async function joinFunc(e) {
   let response = await fetch(serverUrl, options);
 
   if (response.status === 201) {
-    const data = await response.json();
+    vals = await response.json();
 
-    console.log("Data"+ data);
+   // console.log("Data"+ data);
 
 
 
-    console.log("Token" + data.token)
-    console.log('Email:'+ data.email)
-    localStorage.setItem("userName", JSON.stringify({ userName: data.user.userName }));
-    localStorage.setItem("firstName", data.firstName);
+   // console.log("Token" + data.token)
+   // console.log('Email:'+ data.email)
+   //localStorage.setItem("userName", JSON.stringify({ userName: data.user.userName }));
+   //localStorage.setItem("firstName", data.firstName);
 
-    localStorage.setItem("token", data.token)
+    localStorage.setItem("token", vals.token)
+   // userDetails.setToken(vals.token)
+   //console.log(userDetails.token.value)
 
-    console.log('localStorage: '+ localStorage);
-    console.log("You have successfully joined!");
-    router.push("/Welcome");
-  } else if (response.status === 400) {
-    console.log("WRONG!!");
+   // console.log('localStorage: '+ localStorage);
+   // console.log("You have successfully joined!");
+   //console.log("Server response:", vals)
+
+   }
+
+
+
+  // alert("JOINED");
+   else {
+    console.log(response.status);
+    return;
   }
-}
+
+
+  }
 }
 </script>
 

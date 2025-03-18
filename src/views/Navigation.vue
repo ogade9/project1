@@ -1,10 +1,11 @@
 <script setup>
+import PrivateMessage from '@/components/PrivateMessage.vue';
 
 </script>
 
 <template>
     <div class="flex justify-center align-center">
-        <h1 class="primary-heading">NAVIGATION</h1>
+       <h1 class="primary-heading">NAVIGATION</h1>
         <div class="bars">Daily Nutrition</div>
        <div class="bars">Step Counter</div>
        <div class="bars">Calories</div>

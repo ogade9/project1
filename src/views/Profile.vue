@@ -5,6 +5,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 // import { RouterView } from 'vue-router';
+import {userProfile} from '@/stores/user';
 import Modal from "../components/Modal.vue";
 library.add(faPen);
 
@@ -14,6 +15,7 @@ const firstName = ref("");
 const lastName = ref("");
 const email = ref("");
 const password = ref("");
+const userDetails = userProfile();
 
 const message = ref("");
 const newuserName = ref("");
@@ -25,7 +27,7 @@ const modal = useTemplateRef("name-modal");
 
 //userName.value=JSON.parse(localStorage.getItem("key"))
 onMounted(async () => {
-  const token = localStorage.getItem("token");
+  const token = userDetails.token;
   if (!token) {
     console.log("No token found in localStorage.");
     return;
@@ -48,7 +50,7 @@ onMounted(async () => {
   userName.value = data.userName || "Guest";
   email.value = data.email || "Not provided";
   // password.value = data.password;
-  localStorage.setItem("lastName", JSON.stringify({ lastName: data.lastName }));
+  /*localStorage.setItem("lastName", JSON.stringify({ lastName: data.lastName }));
   localStorage.setItem(
     "firstName",
     JSON.stringify({ firstName: data.firstName })
@@ -56,7 +58,7 @@ onMounted(async () => {
   localStorage.setItem("email", JSON.stringify({ email: data.email }));
   localStorage.setItem("password", JSON.stringify({ password: data.password }));
 
-
+*/
 });
 
 async function edit() {
@@ -69,7 +71,9 @@ async function edit() {
   };
   console.log("clicked");
 
-  const token = localStorage.getItem("token");
+ // const token = localStorage.getItem("token");
+ const token = userDetails.token;
+
 
   const serverUrl = "https://hap-app-api.azurewebsites.net/user";
   const options = {
@@ -95,12 +99,12 @@ async function edit() {
 
     console.log(data);
 
-    localStorage.setItem(
+    /*localStorage.setItem(
       "lastName",
       JSON.stringify({ lastName: newlastName.value })
     );
-    console.log(localStorage.getItem(lastName));
-    localStorage.setItem(
+    //console.log(localStorage.getItem(lastName));
+   localStorage.setItem(
       "firstName",
       JSON.stringify({ firstName: newfirstName.value })
     );
@@ -112,7 +116,7 @@ async function edit() {
     localStorage.setItem(
       "password",
       JSON.stringify({ password: newPassword.value })
-    );
+    );*/
   } else {
     console.log("not ok");
   }

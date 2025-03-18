@@ -1,22 +1,19 @@
-<script setup>
-
+<script>
 import Messages from '@/components/Messages.vue';
 import Scrollable from '@/components/Scrollable.vue';
 import MessagesModal from '@/components/MessagesModal.vue';
 import { useTemplateRef } from 'vue';
-
+import MessageForm from '@/components/MessageForm.vue'
 
 
 </script>
 
 <template>
   <div class="liveChatBox">
-   
-
-    <h1>CHATS</h1>
 
 
-    <Scrollable/>
+
+    <MessageForm/>
   </div>
 
 
@@ -30,5 +27,3 @@ import { useTemplateRef } from 'vue';
 
 
 </style>
-
-

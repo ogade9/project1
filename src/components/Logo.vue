@@ -7,7 +7,7 @@ const router = useRouter();
 
 function homePage(event){
   event.preventDefault();
-  router.push("/Welcome");
+  router.push("/");
 
 }
 </script>

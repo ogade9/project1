@@ -5,7 +5,8 @@ import {ref} from 'vue'
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-
+import { RouterLink } from 'vue-router';
+import { RouterView } from 'vue-router';
 
 library.add(faMagnifyingGlass);
 
@@ -14,7 +15,11 @@ library.add(faMagnifyingGlass);
   const newMessagesCount= ref('')
   const latestMessageTime = new Date().toISOString();
   const newMessagesTime = ref('');
-  const search=ref('');
+  const search=ref([]);
+  const  users= ref([]);
+  const firstName=ref('');
+  const showResults = ref(false);
+  const lastName=ref('');
   //newMessagesTime.value= messages.value[0].updatedAt;
 
 
@@ -156,12 +161,12 @@ library.add(faMagnifyingGlass);
   }
   async function searchUsers(event){
     event.preventDefault();
-    const users ={
-      search:search.value
-    }
+
 
     const token = localStorage.getItem("token");
-    const serverUrl=`https://hap-app-api.azurewebsites.net/users?search=firstName:search.value|lastName:search.value|userName:search.value&sortBy=firstName:asc|firstName:desc&skip=1&limit=3`;
+    console.log(search.value);
+    const serverUrl=`https://hap-app-api.azurewebsites.net/users?search=firstName:${search.value}|lastName:${search.value}&sortBy=firstName:asc|firstName:desc&skip=0&limit=1`;
+
     const options = {
       method: "GET",
       headers:{
@@ -173,11 +178,18 @@ library.add(faMagnifyingGlass);
 
     };
     let response = await fetch(serverUrl,options);
-    const data = await response.json();
+
+    console.log(response)
 
     if(response.status===200){
+      users.value = await response.json();
+      console.log(users.value)
 
-      console.log("showing users");
+
+
+      //console.log(search.value);
+
+
 
     }
     else{
@@ -199,6 +211,7 @@ onMounted(async () => {
 
 
 
+
   });
 
 
@@ -211,7 +224,14 @@ onMounted(async () => {
     <section>
       <div >
         <input type="text" v-model="search" class="searchLogoWrap" placeholder="Search Users">
-        <font-awesome-icon :icon="['fas', 'magnifying-glass']"  class="searchLogo" @click="searchUsers"/>
+
+        <font-awesome-icon :icon="['fas', 'magnifying-glass']"  class="searchLogo"  @click="searchUsers"/>
+        <div v-if="users.length>0" class="searchBox" >
+        <RouterLink style="text-decoration: none;" v-for="(user,key) in users" :key="key" :to="`/user/${user._id}?name=${user.userName}`">
+    {{ user.firstName }} {{ user.lastName }}
+  </RouterLink>
+
+</div>
 
         </div>
     <button @click="showNewMessages" class="display-messageCount">
@@ -247,11 +267,12 @@ body{
 
 
 }
+
 section {
   margin-top: 0px;
   background-color: rgb(152, 145, 210);
 
-  height:85vh;
+  height:75vh;
   width: 33vw;
   overflow: hidden;
 
@@ -262,10 +283,18 @@ section {
 
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 500px;
+  height: 300px;
   width:33vw;
 
 
+
+}
+.searchBox{
+  background-color:white;
+  margin-top: 20px;
+  height: 100px;
+  border-radius: 20px;
+  align-content: center;
 
 }
 #btn-load{

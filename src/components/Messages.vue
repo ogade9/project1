@@ -5,6 +5,7 @@ import { faUser as faUserRegular } from '@fortawesome/free-regular-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import MessagesModal from "./MessagesModal.vue";
 import {ref, useTemplateRef} from "vue";
+import { RouterLink } from "vue-router";
 
 library.add(faUser,faUserRegular);
 
@@ -23,7 +24,9 @@ const modal= useTemplateRef('profile-modal');
 </script>
 <template>
 
+
 <div class="message-card">
+
   <div class="card">
     <div class= "user-icon">
     <font-awesome-icon icon="fa-solid fa-user" class="icon" @click="modal.open()"/>
@@ -39,6 +42,7 @@ const modal= useTemplateRef('profile-modal');
     </div>
 
   </div>
+
 
 </div>
 <!--<MessagesModal ref="profile-modal">
