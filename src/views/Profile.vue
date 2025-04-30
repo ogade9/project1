@@ -5,7 +5,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 // import { RouterView } from 'vue-router';
-import {userProfile} from '@/stores/user';
+import {userProfile} from "@/stores/user";
 import Modal from "../components/Modal.vue";
 library.add(faPen);
 

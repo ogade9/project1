@@ -7,7 +7,7 @@ export const userProfile = defineStore('user', ()=>{
   const lastName = ref('');
   const userName = ref('');
   const email = ref('');
-  const password = ref('');
+  //const password = ref('');
 
   const profileName = computed (()=>
     firstName.value + ' ' + lastName.value
@@ -30,5 +30,5 @@ export const userProfile = defineStore('user', ()=>{
   }
 
 
-  return{firstName,lastName,userName,profileName,email,token,setUser,setToken,clearToken,getToken}
+  return{firstName,lastName,userName,profileName,email,token,setUser,setToken,clearToken}
 })
